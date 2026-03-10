@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  nixpkgs-unstable,
+  ...
+}:
 {
   imports = [
     # Include the results of the hardware scan.
@@ -37,13 +42,21 @@
   };
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
+  services.displayManager = {
+    sddm = {
+      enable = true;
+      autoLogin = {
+        relogin = true;
+      };
+    };
+    autoLogin.user = "alien";
+  };
   services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
-    layout = "de";
-    variant = "";
+    layout = "de,us";
+    variant = "eurosign:e,caps:escape,grp:win_space_toggle";
   };
 
   # Configure console keymap
@@ -88,7 +101,20 @@
   };
 
   # Install firefox.
-  programs.firefox.enable = true;
+  programs = {
+    firefox.enable = true;
+    steam = {
+      enable = true;
+      extraPackages = [
+        # So we don't have that ugly cursor when hovering over Steam
+        pkgs.kdePackages.breeze
+      ];
+      extraCompatPackages = [
+        nixpkgs-unstable.proton-ge-rtsp-bin
+        nixpkgs-unstable.proton-ge-bin
+      ];
+    };
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
