@@ -16,6 +16,9 @@
         f: nixpkgs.lib.attrsets.genAttrs [ "x86_64-linux" ] (system: f nixpkgs.legacyPackages.${system});
     in
     {
+      packages = eachSystem (pkgs: {
+        overte-vr-appimage = pkgs.callPackage ./packages/overte-vr-appimage.nix { };
+      });
       nixosConfigurations = {
         simulator =
           let

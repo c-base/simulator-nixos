@@ -2,6 +2,7 @@
   config,
   pkgs,
   nixpkgs-unstable,
+  selfpkgs,
   ...
 }:
 {
@@ -120,6 +121,9 @@
     git
     bash
     python3
+
+    selfpkgs.overte-vr-appimage
+    nixpkgs-unstable.wayvr
   ];
 
   # List services that you want to enable:
