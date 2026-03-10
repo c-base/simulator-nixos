@@ -55,6 +55,8 @@
     videoDrivers = [ "nvidia" ];
   };
 
+  hardware.nvidia.open = true;
+
   # Configure console keymap
   console.keyMap = "de";
 
