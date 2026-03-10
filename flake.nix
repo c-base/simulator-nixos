@@ -39,7 +39,7 @@
                   nixpkgs = {
                     hostPlatform = system;
                     config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) allowedUnfree;
-                    config.permittedInsecurePackages = lib.mkIf (allowedInsecure != [ ]) allowedInsecure;
+                    config.permittedInsecurePackages = allowedInsecure;
                   };
                   _module.args = {
                     selfpkgs = self.packages.${system};
