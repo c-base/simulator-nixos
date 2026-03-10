@@ -55,7 +55,7 @@
     videoDrivers = [ "nvidia" ];
   };
 
-  hardware.nvidia.open = true;
+  hardware.nvidia.open = false; # 1060 not supported
 
   # Configure console keymap
   console.keyMap = "de";
