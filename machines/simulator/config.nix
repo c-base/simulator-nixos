@@ -47,9 +47,12 @@
   services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "de,us";
-    variant = "eurosign:e,caps:escape,grp:win_space_toggle";
+  services.xserver = {
+    xkb = {
+      layout = "de,us";
+      variant = "eurosign:e,caps:escape,grp:win_space_toggle";
+    };
+    videoDrivers = [ "nvidia" ];
   };
 
   # Configure console keymap
