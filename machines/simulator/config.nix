@@ -12,8 +12,14 @@
   ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    systemd-boot = {
+      enable = true;
+      #windows = { "11" = { }; };
+      edk2-uefi-shell.enable = true;
+    };
+    efi.canTouchEfiVariables = true;
+  };
   boot.kernelPackages = pkgs.linuxPackages_6_18;
   networking.hostName = "simulator"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
