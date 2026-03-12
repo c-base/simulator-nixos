@@ -105,6 +105,7 @@
   # Install firefox.
   programs = {
     firefox.enable = true;
+    partition-manager.enable = true;
     steam = {
       enable = true;
       extraPackages = [
