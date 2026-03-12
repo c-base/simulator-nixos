@@ -12,6 +12,7 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
+  boot.supportedFilesystems = [ "ntfs" ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/cafcd62a-b064-4f66-ba3b-ac870eef9071";
@@ -22,6 +23,12 @@
     { device = "/dev/disk/by-uuid/B413-F08C";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
+    };
+
+  fileSystems."/shared" =
+    { device = "/dev/disk/by-uuid/716679c0-0079-4d72-b0ea-3be9afb308d1";
+      fsType = "ntfs";
+      options = [ "rw" "uid=1000" ];
     };
 
   swapDevices =
