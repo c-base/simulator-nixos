@@ -16,7 +16,7 @@
     systemd-boot = {
       enable = true;
       windows."11".efiDeviceHandle = "HD0b";
-      edk2-uefi-shell.enable = true;
+      #edk2-uefi-shell.enable = true;
     };
     efi.canTouchEfiVariables = true;
   };
