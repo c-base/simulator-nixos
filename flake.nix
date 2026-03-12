@@ -65,6 +65,7 @@
                   home-manager.useGlobalPkgs = true;
                   home-manager.useUserPackages = true;
                   home-manager.backupFileExtension = "hm-bak";
+                  home-manager.users.alien.home.stateVersion = "25.11";
                 }
               )
               nixpkgs-xr.nixosModules.nixpkgs-xr
