@@ -68,6 +68,7 @@
                 }
               )
               nixpkgs-xr.nixosModules.nixpkgs-xr
+              inputs.home-manager.nixosModules.home-manager
               ./machines/simulator/config.nix
             ];
           };
