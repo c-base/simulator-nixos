@@ -57,7 +57,6 @@
                       config.permittedInsecurePackages = allowedInsecure;
                       overlays = [
                         inputs.nixpkgs-xr.overlays.default
-                        inputs.home-manager.nixosModules.home-manager
                       ];
                     };
                     inherit inputs;
