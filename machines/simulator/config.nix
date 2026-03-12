@@ -79,6 +79,41 @@
 
   services.monado = {
     enable = true;
+    defaultRuntime = true;
+  };
+  systemd.user.services."monado".environment = {
+    STEAMVR_LH_ENABLE = "1";
+    XRT_COMPOSITOR_COMPUTE = "1";
+  };
+  home-manager.users.trr = {
+    home.file = {
+      ".local/share/monado/hand-tracking-models".source = pkgs.fetchgit {
+        url = "https://gitlab.freedesktop.org/monado/utilities/hand-tracking-models.git";
+        fetchLFS = true;
+        sha256 = "sha256-x/X4HyyHdQUxn3CdMbWj5cfLvV7UyQe1D01H93UCk+M=";
+      };
+    };
+    xdg.configFile = {
+      # to use the correct openvr comp prepend: "PRESSURE_VESSEL_FILESYSTEMS_RW=$XDG_RUNTIME_DIR/monado_comp_ipc"
+      "openvr/openvrpaths.vrpath".text = ''
+        {
+          "config": [
+            "${config.home-manager.users.trr.xdg.dataHome}/Steam/config"
+          ],
+          "external_drivers" : null,
+          "jsonid": "vrpathreg",
+          "log": [
+            "${config.home-manager.users.trr.xdg.dataHome}/Steam/logs"
+          ],
+          "runtime": [
+            "${nixpkgs-unstable.opencomposite}/lib/opencomposite"
+          ],
+          "version" : 1
+        }
+      '';
+      "openxr/1/active_runtime.json".source =
+        config.environment.etc."xdg/openxr/1/active_runtime.json".source;
+    };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
