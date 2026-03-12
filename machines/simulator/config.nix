@@ -51,7 +51,7 @@
   services.xserver = {
     xkb = {
       layout = "de,us";
-      variant = "eurosign:e,caps:escape,grp:win_space_toggle";
+      options = "eurosign:e,caps:escape,grp:win_space_toggle";
     };
   };
 
