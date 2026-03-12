@@ -26,9 +26,9 @@
     };
 
   fileSystems."/shared" =
-    { device = "/dev/disk/by-uuid/716679c0-0079-4d72-b0ea-3be9afb308d1";
+    { device = "/dev/disk/by-uuid/25A4D4DA3C6B6464";
       fsType = "ntfs";
-      options = [ "rw" "uid=1000" ];
+      options = [ "rw" /* (hopefully alien uid) */ "uid=1000" ];
     };
 
   swapDevices =
