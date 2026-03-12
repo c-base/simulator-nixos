@@ -14,6 +14,7 @@
       nixpkgs,
       nixpkgs-unstable,
       nixpkgs-xr,
+      home-manager,
     }@inputs:
     let
       eachSystem =
