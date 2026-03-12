@@ -27,9 +27,6 @@
             allowedUnfree = [
               "steam"
               "steam-unwrapped"
-
-              "nvidia-x11"
-              "nvidia-settings"
             ];
             allowedInsecure = [ ];
           in

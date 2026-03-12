@@ -52,10 +52,7 @@
       layout = "de,us";
       variant = "eurosign:e,caps:escape,grp:win_space_toggle";
     };
-    videoDrivers = [ "nvidia" ];
   };
-
-  hardware.nvidia.open = false; # 1060 not supported
 
   # Configure console keymap
   console.keyMap = "de";
