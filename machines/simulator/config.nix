@@ -85,7 +85,7 @@
     STEAMVR_LH_ENABLE = "1";
     XRT_COMPOSITOR_COMPUTE = "1";
   };
-  home-manager.users.trr = {
+  home-manager.users.alien = {
     home.file = {
       ".local/share/monado/hand-tracking-models".source = pkgs.fetchgit {
         url = "https://gitlab.freedesktop.org/monado/utilities/hand-tracking-models.git";
@@ -98,12 +98,12 @@
       "openvr/openvrpaths.vrpath".text = ''
         {
           "config": [
-            "${config.home-manager.users.trr.xdg.dataHome}/Steam/config"
+            "${config.home-manager.users.alien.xdg.dataHome}/Steam/config"
           ],
           "external_drivers" : null,
           "jsonid": "vrpathreg",
           "log": [
-            "${config.home-manager.users.trr.xdg.dataHome}/Steam/logs"
+            "${config.home-manager.users.alien.xdg.dataHome}/Steam/logs"
           ],
           "runtime": [
             "${nixpkgs-unstable.opencomposite}/lib/opencomposite"
