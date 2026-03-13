@@ -7,6 +7,7 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    overte.url = "github:overte-org/overte";
   };
   outputs =
     {
@@ -15,6 +16,7 @@
       nixpkgs-unstable,
       nixpkgs-xr,
       home-manager,
+      overte,
     }@inputs:
     let
       eachSystem =
@@ -23,6 +25,7 @@
     {
       packages = eachSystem (pkgs: {
         overte-vr-appimage = pkgs.callPackage ./packages/overte-vr-appimage.nix { };
+        overte-vr = inputs.overte.packages.${pkgs.stdenv.hostPlatform.system}.default;
       });
       nixosConfigurations = {
         simulator =
@@ -33,7 +36,9 @@
               "steam"
               "steam-unwrapped"
             ];
-            allowedInsecure = [ ];
+            allowedInsecure = [
+              "qtwebengine-5.15.19"
+            ];
           in
           nixpkgs.lib.nixosSystem {
             specialArgs = {
