@@ -37,7 +37,7 @@
               "steam-unwrapped"
             ];
             allowedInsecure = [
-              "qtwebengine-5.15.19"
+              #"qtwebengine-5.15.19"
             ];
           in
           nixpkgs.lib.nixosSystem {

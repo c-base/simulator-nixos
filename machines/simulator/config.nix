@@ -169,7 +169,7 @@
     bash
     python3
 
-    selfpkgs.overte-vr
+    selfpkgs.overte-vr-appimage
     nixpkgs-unstable.wayvr
   ];
 
