@@ -33,7 +33,8 @@
         /* (hopefully) alien uid */
         "uid=1000"
         # some ppl delete my FS :(
-        "nofail" "x-systemd.device-timeout=5" ];
+        "nofail" "x-systemd.device-timeout=5"
+       ];
     };
 
   swapDevices =
