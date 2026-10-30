@@ -115,7 +115,7 @@
             "${config.home-manager.users.alien.xdg.dataHome}/Steam/logs"
           ],
           "runtime": [
-            "${nixpkgs-unstable.opencomposite}/lib/opencomposite"
+            "${nixpkgs-unstable.xrizer}/lib/xrizer"
           ],
           "version" : 1
         }
